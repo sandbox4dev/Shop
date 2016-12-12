@@ -20,7 +20,7 @@ public class UserDAO {
         mongoOperations.save(user);
     }
 
-    public User get(String id){
+    public User get(Long id){
         return mongoOperations.findOne(Query.query(Criteria.where("id").is(id)),User.class);
     }
 
@@ -28,7 +28,7 @@ public class UserDAO {
         return mongoOperations.findAll(User.class);
     }
 
-    public void remove (String id){
+    public void remove (Long id){
         mongoOperations.remove(Query.query(Criteria.where("id").is(id)), User.class);
     }
 }
